@@ -33,8 +33,6 @@ class Disk:
 
         self.dxpos = xpos
         self.dypos = ypos
-
-        self.showDisk()
         
     def clearDisk(self):
         t.color("white")
