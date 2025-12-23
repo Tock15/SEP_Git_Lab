@@ -5,5 +5,4 @@ class Taxi(Transportation):
         super().__init__(start, end, distance)
 
     def find_cost(self):
-        super().find_cost()
         return 40*self.distance
