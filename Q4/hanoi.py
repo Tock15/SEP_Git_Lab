@@ -22,7 +22,7 @@ class Hanoi(object):
         else:
             self.move_tower(n-1,s,w,d)
             self.move_disk(s,d)
-            self.move_tower(n-1,s,w,d)
+            self.move_tower(n-1,w,d,s)
     def solve(self):
         self.move_tower(3,self.startp,self.destinationp,self.workspacep)
 
