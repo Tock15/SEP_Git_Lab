@@ -1,5 +1,6 @@
 import turtle as t
 from disk import Disk
+t.speed(0)
 class Pole:
     def __init__(self, name="", xpos=0, ypos=0, thick=10, length=100):
         self.name = name
@@ -24,19 +25,21 @@ class Pole:
         t.left(90)
         t.forward(self.thick / 2)
     def pushDisk(self, disk):
-        disk.newpos(self.xpos, self.ypos + self.toppos*20)
-        self.stack.append(disk)
-        self.toppos += 1
-        disk.showDisk()
-
+        if disk:
+            disk.newpos(self.xpos, self.ypos + self.toppos*20)
+            self.stack.append(disk)
+            self.toppos += 1
+            disk.showDisk()
         
     def popDisk(self):
-        disk = self.stack.pop()
-        self.toppos -= 1
-        disk.clearDisk()
-        disk.newpos(disk.dxpos, 120)
-        disk.showDisk()
-        return disk
+        print("popping from", self.name)
+        if len(self.stack) != 0:
+            disk = self.stack.pop()
+            self.toppos -= 1
+            disk.clearDisk()
+            disk.newpos(disk.dxpos, 120)
+            disk.showDisk()
+            return disk
 
 
 if __name__ == "__main__":
